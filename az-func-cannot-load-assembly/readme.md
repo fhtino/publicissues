@@ -26,3 +26,11 @@ After adding  Azure.Storage.Blobs:
 
 ![](_imgs/post.png)
 
+
+**Workaround:**  add _FunctionsSkipCleanOutput to project file
+
+```
+<PropertyGroup>
+	<_FunctionsSkipCleanOutput>true</_FunctionsSkipCleanOutput>
+```
+
