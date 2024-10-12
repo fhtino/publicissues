@@ -29,6 +29,13 @@ After adding  Azure.Storage.Blobs:
 
 ??? Related to https://github.com/Azure/azure-functions-core-tools/issues/2872  ???
 
+
+Tested with:
+
+ - Visual Studio 2022 17.11.5
+ - Azure Functions Core Tools / Core Tools Version: 4.0.6518 (64-bit) / Function Runtime Version: 4.35.4.23179
+
+
 <br/>
 <br/>
 
