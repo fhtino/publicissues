@@ -18,14 +18,21 @@ namespace azfunct1
             [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)] HttpRequest req,
             ILogger log)
         {
-            log.LogInformation("Hello world");
-            //await Task.CompletedTask;
-
-            var tsc = new TableServiceClient("UseDevelopmentStorage=true");
-            var tabc = tsc.GetTableClient("zzztest1");
-            await tabc.CreateIfNotExistsAsync();
+            log.LogInformation("Hello world");            
 
             string responseMessage = $"Hello world! - {DateTime.UtcNow.ToString("O")}";
+
+            try
+            {
+                var tsc = new TableServiceClient("UseDevelopmentStorage=true");
+                var tabc = tsc.GetTableClient("zzztest1");
+                await tabc.CreateIfNotExistsAsync();
+            }
+            catch (Exception ex)
+            {
+                responseMessage = $"ERROR: {ex.ToString()}";
+            }
+            
             return new OkObjectResult(responseMessage);
         }
     }
