@@ -7,6 +7,7 @@ using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
+using Azure.Data.Tables;
 
 namespace azfunct1
 {
@@ -18,7 +19,12 @@ namespace azfunct1
             ILogger log)
         {
             log.LogInformation("Hello world");
-            await Task.CompletedTask;
+            //await Task.CompletedTask;
+
+            var tsc = new TableServiceClient("UseDevelopmentStorage=true");
+            var tabc = tsc.GetTableClient("zzztest1");
+            await tabc.CreateIfNotExistsAsync();
+
             string responseMessage = $"Hello world! - {DateTime.UtcNow.ToString("O")}";
             return new OkObjectResult(responseMessage);
         }
