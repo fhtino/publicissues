@@ -27,6 +27,13 @@ After adding  Azure.Storage.Blobs:
 ![](_imgs/post.png)
 
 
+??? Related to https://github.com/Azure/azure-functions-core-tools/issues/2872  ???
+
+<br/>
+<br/>
+
+---
+
 **Workaround:**  add _FunctionsSkipCleanOutput to project file
 
 ```
@@ -34,3 +41,7 @@ After adding  Azure.Storage.Blobs:
 	<_FunctionsSkipCleanOutput>true</_FunctionsSkipCleanOutput>
 ```
 
+---
+
+<br/>
+<br/>
